@@ -1,9 +1,16 @@
 const express = require("express");
 const cors = require("cors");
+
 require("dotenv").config();
+
+const connectDB=require('./db');
 const app=express();
 
+connectDB();
+
 app.use(cors());
+app.use(express.json());
+
 
 app.get('/',(req,res)=>{
     res.send('Server is ready');
@@ -45,3 +52,5 @@ const port = process.env.port || 3005;
 app.listen(port,()=>{
     console.log(`Serve at http:localhost:${port}`);
 });
+
+
