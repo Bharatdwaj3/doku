@@ -4,13 +4,14 @@ const cors = require("cors");
 require("dotenv").config();
 
 const connectDB=require('./db');
+const monarchyRoutes =require("./routes/monarchyRoutes");
 const app=express();
 
 connectDB();
 
 app.use(cors());
 app.use(express.json());
-
+app.use('./monarchy',monarchyRoutes);
 
 app.get('/',(req,res)=>{
     res.send('Server is ready');

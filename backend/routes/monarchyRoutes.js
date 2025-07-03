@@ -21,3 +21,4 @@ router.post('/monarchs',async(req,res)=>{
     }
 });
 
+module.exports=router;
