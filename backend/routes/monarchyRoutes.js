@@ -1,24 +1,18 @@
 const express = require('express');
 const monarch = require('../models/monarchyModel');
 const router=express.Router();
+const {getMonarchs, getMonarch, createMonarch, updateMonarch, deleteMonarch} = require('../controllers/MOnarch.controller.js');
 
-router.get('/monarchs',async(req,res)=>{
-    try{
-        const monarch= await monarch.find();
-        res.json(monarch);
-    }catch{
-        res.status(500).json({message:error.message});
-    }
-});
 
-router.post('/monarchs',async(req,res)=>{
-    try{
-        const monarch=new monarch(req.body);
-        const savedMonarch=await monarch.save();
-        res.status(201).json(savedMonarch);
-    }catch(error){
-        res.status(400).json({message:error.message});
-    }
-});
+router.get('/', getMonarchs);
+router.get("/:id", getMonarch);
+
+router.post("/", createMonarch);
+
+// update a MOnarch
+router.put("/:id", updateMonarch);
+
+// delete a MOnarch
+router.delete("/:id", deleteMonarch);
 
 module.exports=router;

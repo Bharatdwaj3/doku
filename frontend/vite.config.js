@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/kings': 'http://localhost:4000/kings',
-      '/monarchs': 'http://localhost:4000/monarchs'
+      '/monarch': 'http://localhost:4000/monarch'
     }
   }
 })

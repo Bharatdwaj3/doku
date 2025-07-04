@@ -11,12 +11,15 @@ connectDB();
 
 app.use(cors());
 app.use(express.json());
-app.use('./monarchy',monarchyRoutes);
+
 
 app.get('/',(req,res)=>{
     res.send('Server is ready');
 });
 
+app.use('/monarchy',monarchyRoutes);
+
+{/*
 app.get('/kings',(req,res)=>{
     const kings =[
         {
@@ -47,8 +50,9 @@ app.get('/kings',(req,res)=>{
     ]
     res.send(kings);
 });
+*/}
 
-const port = process.env.port || 3005;
+const port = process.env.PORT || 3005;
 
 app.listen(port,()=>{
     console.log(`Serve at http:localhost:${port}`);

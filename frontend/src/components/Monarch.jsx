@@ -8,7 +8,7 @@ const Monarch = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/monarchs`)
+      .get(`http://localhost:4000/monarch`)
       .then((response) => {
         setmonarchs(response.data);
       })
