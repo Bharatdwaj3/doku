@@ -1,5 +1,5 @@
 import React from 'react'
-import {Header, Footer, Content, Card, Navbar} from '../components/index'
+import {Header, Footer, Content,  Navbar} from '../components/index'
 
 const Home = () => {
   return (
