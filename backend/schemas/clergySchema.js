@@ -9,6 +9,10 @@ const clergySchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    Hpst:{
+        type:String,
+        required:true
+    },
     dob:{
         type:Date,
         required:true
@@ -27,4 +31,4 @@ const clergySchema=new mongoose.Schema({
     }
 });
 
-const clergy = mongoose.model('clergy',clergySchema)
+module.exports = clergySchema;

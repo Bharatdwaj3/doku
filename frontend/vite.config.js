@@ -7,8 +7,7 @@ export default defineConfig({
   plugins: [react(),tailwindcss()],
   server: {
     proxy: {
-      '/kings': 'http://localhost:4000/kings',
-      '/monarch': 'http://localhost:4000/monarch'
+
     }
   }
 })

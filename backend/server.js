@@ -5,6 +5,8 @@ require("dotenv").config();
 
 const connectDB=require('./db');
 const monarchyRoutes =require("./routes/monarchyRoutes");
+const clergyRoutes =require("./routes/clergyRoutes");
+const bourgouiseRoutes =require("./routes/bourgouiseRoutes");
 const app=express();
 
 connectDB();
@@ -18,6 +20,8 @@ app.get('/',(req,res)=>{
 });
 
 app.use('/monarchs',monarchyRoutes);
+app.use('/clergy',clergyRoutes);
+app.use('/bourgouise',bourgouiseRoutes);
 
 {/*
 app.get('/kings',(req,res)=>{

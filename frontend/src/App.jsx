@@ -1,4 +1,4 @@
-import { Navbar, Monarch } from './components/index';
+import { Navbar, Monarch, Clergy, Bourgouise } from './components/index';
 import {Home, About, Community} from './pages/index';
 import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom'
 import './App.css'
@@ -13,7 +13,9 @@ function App() {
           <Route path='/' element={<Home/> }/>  
           <Route path='/about' element={<About/>} />
           <Route path='/community' element={<Community/>}/>  
-           <Route path='/monarch' element={<Monarch/>}/>  
+           <Route path='/monarchs' element={<Monarch/>}/>  
+           <Route path='/clergy' element={<Clergy/>}/>
+           <Route path='/bourgouise' element={<Bourgouise/>}/>    
           <Route/>  
         </Routes>
       </Router> 

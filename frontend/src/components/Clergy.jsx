@@ -4,13 +4,13 @@ import React from 'react'
 
 const Monarch = () => {
 
-    const [monarchs, setmonarchs] = useState([]);
+    const [clergy, setClergy] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/monarchs/`)
+      .get(`http://localhost:4000/clergy/`)
       .then((response) => {
-        setmonarchs(response.data);
+        setClergy(response.data);
       })
       .catch((error) => {
         console.error("Error fetching sodaing Monarch", error);
@@ -18,26 +18,27 @@ const Monarch = () => {
   }, []);
   return (
     <>
-         <h1>Monarchs</h1>
+         <h1>clergy</h1>
         {
           // eslint-disable-next-line no-unused-vars
-          monarchs.map((monarchs, index)=>
-            <div key={monarchs._id}>
-              <h3>{monarchs.name}</h3>
-              <p>{monarchs.title}</p>
-              <p>{new Date(monarchs.dob).toLocaleDateString('en-US',{
+          clergy.map((clergy, index)=>
+            <div key={clergy._id}>
+              <h3>{clergy.name}</h3>
+              <p>{clergy.title}</p>
+              <p>{clergy.Hpst}</p>
+              <p>{new Date(clergy.dob).toLocaleDateString('en-US',{
                 year:'numeric',
                 month:'long',
                 day:'numeric',
               })}</p>
-               <p>{new Date(monarchs.dod).toLocaleDateString('en-US',{
+               <p>{new Date(clergy.dod).toLocaleDateString('en-US',{
                 year:'numeric',
                 month:'long',
                 day:'numeric',
               })}</p>
               <img src="/image/Image_not_found.jpg" alt="" />
-              <p>{monarchs.alive}</p>
-              <p>{monarchs.religion}</p>
+              <p>{clergy.alive}</p>
+              <p>{clergy.religion}</p>
             </div>
           )
         }
