@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose');
-const monarchySchema = require('../schemas/monarchySchema');
+const monarchySchema = require('../schemas/monarchyScheman');
 
-const monarch = mongoose.models.monarch || mongoose.model('monarch', monarchSchema);
-module.exports=monarch;
+const Monarch = mongoose.models.Monarch || mongoose.model('Monarch', monarchScheman);
+module.exports=Monarch;

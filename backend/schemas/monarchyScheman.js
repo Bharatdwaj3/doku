@@ -27,4 +27,6 @@ const monarchySchema=new mongoose.Schema({
     }
 });
 
-const monarchy = mongoose.model('monarch',monarchySchema)
+const Monarch = mongoose.models.Monarch || mongoose.model('Monarch', monarchySchema, 'Monarchs');
+
+module.exports = Monarch;

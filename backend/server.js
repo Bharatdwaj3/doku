@@ -17,7 +17,7 @@ app.get('/',(req,res)=>{
     res.send('Server is ready');
 });
 
-app.use('/monarchy',monarchyRoutes);
+app.use('/monarchs',monarchyRoutes);
 
 {/*
 app.get('/kings',(req,res)=>{
