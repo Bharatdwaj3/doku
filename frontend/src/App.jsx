@@ -1,7 +1,7 @@
-import { Navbar, Monarch, Clergy, Bourgouise } from './components/index';
-import {Home, About, Community} from './pages/index';
+import { Navbar,} from './components/index';
+import {Home, About, Community, Chrcts} from './pages/index';
 import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom'
-import './App.css'
+
 
 function App() {
   
@@ -11,11 +11,9 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path='/' element={<Home/> }/>  
+           <Route path='/characters' element={<Chrcts/>}/>  
+          <Route path='/community' element={<Community/>}/>            
           <Route path='/about' element={<About/>} />
-          <Route path='/community' element={<Community/>}/>  
-           <Route path='/monarchs' element={<Monarch/>}/>  
-           <Route path='/clergy' element={<Clergy/>}/>
-           <Route path='/bourgouise' element={<Bourgouise/>}/>    
           <Route/>  
         </Routes>
       </Router> 

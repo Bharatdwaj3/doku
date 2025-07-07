@@ -1,10 +1,17 @@
-import React from 'react'
-
+import React from 'react';
+import {Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <>
-      <h1>NavigationSection</h1>
-      <p>This is the Navigation area</p>
+      <div className="h-32 w-screen absolute inset-x-0  pl-32 border-t-8 border-neutral-900 bg-blue-300">
+          <nav className="text-stone-950 p-4 flex space-x-20">
+            <Link to="/" className="hover:text-gray-950">Home</Link>
+            <Link to="/characters" className="hover:text-gray-50">Characters</Link>
+            <Link to="/community" className="hover:text-gray-50">Community</Link>
+            <Link to="/about" className="hover:text-gray-50">About</Link>
+          </nav>
+          
+        </div>
     </>
   )
 }

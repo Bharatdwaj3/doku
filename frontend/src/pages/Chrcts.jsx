@@ -1,16 +1,16 @@
 import React from 'react'
-import {Header, Footer, Content} from '../components/index'
+import {Header, Footer, CharCard} from '../components/index'
 
-const Home = () => {
+const Chrcts = () => {
   return (
     <>
       <div className="relative  h-[3000px] w-screen bg-sky-100 mt-[70px]">
         <Header/>     
-        <Content/>
+        <CharCard/>
         <Footer/> 
       </div>
     </>
   )
 }
 
-export default Home
+export default Chrcts

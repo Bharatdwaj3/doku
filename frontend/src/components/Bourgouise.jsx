@@ -36,7 +36,7 @@ const Monarch = () => {
                 month:'long',
                 day:'numeric',
               })}</p>
-              <img src="/image/Image_not_found_bourgeois.jpg" alt="" />
+              <img src="../../public/image/Image_not_found_bourgeois.jpg" alt="" />
               <p>{bourgouise.alive}</p>
               <p>{bourgouise.religion}</p>
             </div>
