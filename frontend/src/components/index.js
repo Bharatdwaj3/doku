@@ -6,8 +6,7 @@ import Monarch from './Monarch';
 import Bourgouise from './Bourgouise';
 import Clergy from './Clergy';
 import CharCard from './CharCard'
-import { Register, Login, Logout } from './User';
+import User from './User'
 
 export {Content, Footer, Header, Navbar, Monarch, 
-    Bourgouise, Clergy, CharCard};
-export {Login, Register, Logout}
+    Bourgouise, Clergy, CharCard, User};

@@ -1,12 +1,14 @@
 import React from 'react'
-import {Header, Footer, CharCard} from '../components/index'
+import {Header, Footer,  Monarch, Clergy, Bourgouise} from '../components/index'
 
 const Chrcts = () => {
   return (
     <>
-      <div className="relative  h-[3000px] w-screen bg-sky-100 mt-[70px]">
+      <div className="relative  h-[9000px] w-screen bg-sky-100 mt-[70px]">
         <Header/>     
-        <CharCard/>
+        <Monarch/>
+        <Clergy/>
+        <Bourgouise/>
         <Footer/> 
       </div>
     </>

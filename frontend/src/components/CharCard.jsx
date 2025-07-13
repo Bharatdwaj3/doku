@@ -29,15 +29,13 @@ function CharCard(){
     <>
       <Box sx={{
         display:'grid', 
-        gridTemplateColumns:'repeat(3, 1fr)',
-        gridTemplateRows:'repeat(3, 1fr)',
+        gridTemplateColumns:'repeat(4, 1fr)',
+        gridTemplateRows:'repeat(4, 1fr)',
         gap:2,
         padding:2,
-        maxWidth:'1400px',
-        paddingLeft:'300px'
+        maxWidth:'1500px',
+        paddingLeft:'200px'
       }}>
-
-          
           {character.map((character, index)=>(
             <Card  key={character._id}>
               <CardActionArea>

@@ -1,10 +1,17 @@
-import { useEffect, useState } from "react";
+
+import React, { useEffect, useState } from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardActions from '@mui/material/CardActions';
+import Box from '@mui/material/Box';
 import axios from "axios";
-import React from 'react'
+const Bourgouise = () => {
 
-const Monarch = () => {
-
-    const [bourgouise, setBourgouise] = useState([]);
+    const [Bourgouise, setBourgouise] = useState([]);
 
   useEffect(() => {
     axios
@@ -13,37 +20,71 @@ const Monarch = () => {
         setBourgouise(response.data);
       })
       .catch((error) => {
-        console.error("Error fetching sodaing Monarch", error);
+        console.error("Error fetching sodaing Bourgouise", error);
       });
   }, []);
   return (
     <>
-         <h1>bourgouise</h1>
-        {
-          // eslint-disable-next-line no-unused-vars
-          bourgouise.map((bourgouise, index)=>
-            <div key={bourgouise._id}>
-              <h3>{bourgouise.name}</h3>
-              <p>{bourgouise.city}</p>
-              <p>{bourgouise.occupation}</p>
-              <p>{new Date(bourgouise.dob).toLocaleDateString('en-US',{
+      <div className="relative  h-[1500px] w-screen bg-amber-100 mt-[70px]">
+
+          <h1>Bourgouises</h1>
+        
+      
+         
+        <Box sx={{
+        display:'grid', 
+        gridTemplateColumns:'repeat(4, 1fr)',
+        gridTemplateRows:'repeat(4, 1fr)',
+        gap:2,
+        padding:2,
+        maxWidth:'1500px',
+        paddingLeft:'200px'
+      }}>
+          
+                 {Bourgouise.map((Bourgouise)=>(
+            <Card  key={Bourgouise._id}>
+              <CardActionArea>
+                <CardMedia
+                    component="img"
+                    height="200"
+                    image={`/image/Image_not_found_bourgeois.jpg`}
+                    alt="Bourgouisey??"
+                />
+
+                <CardContent >
+                  <Typography gutterBottom variant='h5' component="div">{Bourgouise.name}</Typography>
+                   <br /><Typography gutterBottom variant='h5' component="div">{Bourgouise.title}</Typography>
+                   <br /><Typography gutterBottom variant='body' sx={{mb:1}}><strong>Born: </strong>{new Date(Bourgouise.dob).toLocaleDateString('en-US',{
                 year:'numeric',
                 month:'long',
                 day:'numeric',
-              })}</p>
-               <p>{new Date(bourgouise.dod).toLocaleDateString('en-US',{
+              })}</Typography>
+               <br />
+                  <Typography gutterBottom variant='body' sx={{mb:1}}><strong>Died: </strong>{new Date(Bourgouise.dod).toLocaleDateString('en-US',{
                 year:'numeric',
                 month:'long',
                 day:'numeric',
-              })}</p>
-              <img src="../../public/image/Image_not_found_bourgeois.jpg" alt="" />
-              <p>{bourgouise.alive}</p>
-              <p>{bourgouise.religion}</p>
-            </div>
-          )
-        }
+              })}</Typography>
+              <br />
+                  <Typography variant='body2' sx={{mb:1}}><strong>Mortality_Status: </strong>{Bourgouise.alive? 'Alive':'Dead'}</Typography>
+                  <Typography variant='body2'><strong>Religion: </strong>{Bourgouise.religion}</Typography>
+                </CardContent>
+                <CardActionArea>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      View Details
+                    </Button>
+                  </CardActions>
+                </CardActionArea>
+              </CardActionArea>
+            </Card>
+          ))}
+      </Box>
+      </div>
+        
+         
     </>
   )
 }
 
-export default Monarch
+export default Bourgouise

@@ -31,4 +31,4 @@ const bourgouiseSchema=new mongoose.Schema({
     }
 });
 
-const bourgouise = mongoose.model('bourgouise',bourgouiseSchema)
+module.exports = bourgouiseSchema;
