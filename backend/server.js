@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require('cookie-parser');
 
 require("dotenv").config();
 
@@ -12,7 +13,10 @@ const app=express();
 
 connectDB();
 
-app.use(cors());
+app.use(cors({
+    origin:'http://localhost:5173',
+    credentials:true,
+}));
 app.use(express.json());
 
 
@@ -30,5 +34,3 @@ const port = process.env.PORT || 3005;
 app.listen(port,()=>{
     console.log(`Serve at http:localhost:${port}`);
 });
-
-

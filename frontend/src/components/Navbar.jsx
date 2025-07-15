@@ -9,7 +9,7 @@ const Navbar = () => {
             <Link to="/char" className="hover:text-gray-50">Characters</Link>
             <Link to="/community" className="hover:text-gray-50">Community</Link>
             <Link to="/about" className="hover:text-gray-50">About</Link>
-            <Link to="/user" className="hover:text-gray-50">User</Link>
+             <Link to="/profile" className="hover:text-gray-50">Profile</Link>
           </nav>
         </div>
     </>

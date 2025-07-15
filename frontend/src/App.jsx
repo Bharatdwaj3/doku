@@ -1,6 +1,8 @@
 import { Bourgouise, Monarch, Navbar,User, Clergy} from './components/index';
+import InsertDB from './components/InsertDB';
 import {Home, About, Community, Chrcts} from './pages/index';
 import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom'
+import Test from './pages/Test';
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
           <Route path='/community' element={<Community/>}/>            
           <Route path='/about' element={<About/>} />
           <Route path='/user' element={<User/>} />
+          <Route path='/test' element={<Test/>} />
           <Route/>  
         </Routes>
       </Router> 

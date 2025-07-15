@@ -7,7 +7,7 @@ const userSchema=new mongoose.Schema({
     },
     username:{
         type:String,
-        required:false
+        required:true
     },
     email:{
         type:String,
@@ -18,6 +18,5 @@ const userSchema=new mongoose.Schema({
         required:true
     }
 });
-
 
 module.exports = userSchema;

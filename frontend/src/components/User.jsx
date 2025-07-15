@@ -20,8 +20,7 @@ import React from 'react'
     <>
          <h1>user</h1>
         {
-          // eslint-disable-next-line no-unused-vars
-          user.map((user, index)=>
+            user.map((user)=>
             <div key={user._id}>
               <h3>Name: {user.name}</h3>
               <p>Username: {user.username}</p>

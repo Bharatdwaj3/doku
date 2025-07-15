@@ -26,8 +26,10 @@ const Clergy = () => {
     <>
 
 
-        <div className="relative  h-[1500px] w-screen bg-amber-100 mt-[70px]">
-          <h1>Clergys</h1>
+        <div className="relative  h-[1500px] w-screen bg-amber-100">
+          <div className="h-[200px] w-screen">
+          <h1 className="border-b-2 mt-96 ml-20 text-amber-950">Clergy</h1>
+        </div>
         
       
          

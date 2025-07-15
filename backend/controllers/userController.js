@@ -2,13 +2,14 @@ const express=require('express')
 const User = require("../models/UserModel");
 const cookieParser=require('cookie-parser');
 const {v4: uuidv4} = require('uuid');
+const { route } = require('../routes/monarchyRoutes');
 const router=express.Router();
 
 router.get('/register',(req,res)=>{
   res.render('register');
 });
 
-router.get('/login',(req,res)=>{
+{/*router.get('/login',(req,res)=>{
   const sessionCookie = req.cookies.userSession || '';
   if(sessionCookie!==''){
     const parts=sessionCookie.split('-');
@@ -55,47 +56,9 @@ router.get('/register',async(req,res)=>{
     });
   }
 });
+*/}
 
 
-router.post('/login',async(req, res)=>{
-  let {username, password}=req.body;
-  username=username.trim();
-  password=password.trim();
-  try{
-    const user = await User.findOne({username: username});
-    if(user && user.password.trim()===password){
-      const sessionToken=uuidv4();
-      const cookieValue=`${username}-${sessionToken}`;
-      res.cookie('userSession',cookieValue,{
-        httpOnly:true,
-        maxAge:36000,
-        path:'/'
-      });
-      res.render('welcome',{
-        looggedIn:true,
-        username:username,
-        message:'Login Successful'
-      });
-    }else{
-      res.render('login',{
-        error:'Invalid username or pasword'
-      });
-    }
-  }catch(error){
-    res.render('login',{
-      error:'Login failed Please try again'
-    });
-  }
-});
-
-
-router.get('/logout',(req,res)=>{
-  res.cookie('userSession','',{
-    maxAge:0,
-    path:'/'
-  }); 
-  res.redirect('/login');
-});
 
 router.get('/profile',async(req,res)=>{
   const sessionCookie=req.cookies.userSession || '';
@@ -188,4 +151,5 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
+  router
 };
