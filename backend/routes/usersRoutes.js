@@ -3,6 +3,7 @@ const express = require('express');
 const User = require('../models/UserModel');
 const router=express.Router();
 const {getUsers, getUser, createUser, updateUser, deleteUser} = require('../controllers/userController.js');
+const cookieParser = require('cookie-parser');
 
 
 router.get('/', getUsers);
@@ -10,6 +11,34 @@ router.post("/", createUser);
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 
+router.use(cookieParser());
+
+router.get('/profile',async(req,res)=>{
+  try{
+    const cookie=req.cookies.userSession;
+    if(!cookie){
+      return res.status(401).json({error: 'Please login to view your profile'})
+    }
+    const [username] =  cookie.split('-');
+    if(!username){
+      return res.status(400).json({error: 'Invalid session format'})
+    }
+    const user =await User.findOne({username: username.trim()});
+    if(!user){
+      return res.status(404).json({error: 'User not found'});
+    }
+    res.status(200).json({
+      username: user.username,
+      email: user.email,
+      name: user.name,
+      createdAt: user.createdAt,
+      karma: user.karma || 0,
+      isVerified: user.isVerified || false
+    });
+  }catch(error){
+    res.status(500).json({error: 'Failed to load profile'});
+  }
+});
 
 router.post('/login',async(req, res)=>{
    let {username, password}=req.body;
@@ -22,7 +51,7 @@ router.post('/login',async(req, res)=>{
       const cookieValue=`${username}-${sessionToken}`;
       res.cookie('userSession',cookieValue,{
         httpOnly:true,
-        maxAge:36000,
+        maxAge:3600000,
         path:'/'
       });
       return res.status(200).json({
@@ -51,7 +80,7 @@ router.post('/logout',async(req, res)=>{
       httpOnly:true,
       path:'/'
     });
-    return re.status(200).json({
+    return res.status(200).json({
       success:true,
       message:'Logged out successfully'
     });

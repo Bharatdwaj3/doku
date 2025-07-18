@@ -5,7 +5,6 @@ import Navbar from './Navbar';
 import Monarch from './Monarch';
 import Bourgouise from './Bourgouise';
 import Clergy from './Clergy';
-import User from './User'
 
 export {Content, Footer, Header, Navbar, Monarch, 
-    Bourgouise, Clergy,  User};
+    Bourgouise, Clergy,  };

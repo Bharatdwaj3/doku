@@ -24,7 +24,7 @@ const LogoutButton = ({onLogout}) => {
       console.log("Logout failed: ",error);
       alert("Logout failed. Please try again");
     }finally{
-      setIsLoading(true);
+      setIsLoading(false);
     }
   }
 

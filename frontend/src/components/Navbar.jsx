@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link } from 'react-router-dom';
+//import LogoutButton from './LogoutButton';
 const Navbar = () => {
   return (
     <>
@@ -9,7 +10,7 @@ const Navbar = () => {
             <Link to="/char" className="hover:text-gray-50">Characters</Link>
             <Link to="/community" className="hover:text-gray-50">Community</Link>
             <Link to="/about" className="hover:text-gray-50">About</Link>
-             <Link to="/profile" className="hover:text-gray-50">Profile</Link>
+            <Link to="/test" className="hover:text-gray-50">User</Link>
           </nav>
         </div>
     </>
