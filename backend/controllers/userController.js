@@ -9,55 +9,6 @@ router.get('/register',(req,res)=>{
   res.render('register');
 });
 
-{/*router.get('/login',(req,res)=>{
-  const sessionCookie = req.cookies.userSession || '';
-  if(sessionCookie!==''){
-    const parts=sessionCookie.split('-');
-    if(parts.length===2){
-      res.render('welcome',{
-          loggedIn:true,
-          username:parts[0]
-      });
-      return;
-    }
-  }
-  res.render('login',{
-    notLoggedIn:true
-  });
-});
-
-router.get('/register',async(req,res)=>{
-  let{name, username, email, password}=req.body;
-  name=name.trim();
-  username=username.trim();
-  email=email.trim();
-  password=password.trim();
-  try{
-    const existUser=await User.findOne({username: username});
-    if(existUser){
-      res.render('register',{
-        error:'User already exists'
-      });
-      return;
-    }
-    const newUser=new User({
-      name: name,
-      username:username,
-      email:email,
-      password:password
-    });
-    await newUser.save();
-    res.render('login',{
-      message:'Registration Successful!! Please Log in'
-    });
-  }catch(error){
-    res.render('register',{
-      error:'Registration failed Please try again!'
-    });
-  }
-});
-*/}
-
 
 
 router.get('/profile',async(req,res)=>{

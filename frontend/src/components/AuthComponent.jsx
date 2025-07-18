@@ -53,7 +53,8 @@ const AuthComponent = () => {
         },{
             withCredentials: true
         });
-
+        const userData=response.data.user || {username: username};
+        localStorage.setItem("user",JSON.stringify(userData));
         setMessage(response.data.message || "Login successful!!");
         setIsLoggedIn(true);
         clearForm();
